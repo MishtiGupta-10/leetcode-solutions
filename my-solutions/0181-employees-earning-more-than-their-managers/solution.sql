@@ -1,4 +1,8 @@
-# Write your MySQL query statement below
-select name as Employee  from Employee e
-where salary > (select salary from Employee m
-                    where e.managerId = m.id);
+-- Write your PostgreSQL query statement below
+select name as Employee
+from Employee A
+where salary > (
+    select salary
+    from Employee B
+    where A.managerId = B.id
+)
