@@ -1,16 +1,16 @@
 name: Sync LeetCode to GitHub
 
 on:
-  workflow_dispatch: # Adds a manual sync button
+  workflow_dispatch: # Allows manual trigger button
   schedule:
-    - cron: '0 0 * * *' # Automatically runs every night
+    - cron: '0 0 * * *' # Runs automatically every day
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Run LeetCode Sync Action
-        uses: joshcai/leetcode-sync@1.7.0
+        uses: joshcai/leetcode-sync@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
